@@ -61,18 +61,18 @@ const update = (req, res)=>{
             error:`Error!: ${slug} was not found `
         })
     }
-        const updatedPost=({
-            title: req.body.title,
-            slug: req.body.slug,
-            content: req.body.content,
-            image: req.body.image,
-            tags:req.body.tags
-       
-        })
-        post.push(updatedPost)
+        singlePost.title = req.body.title,
+        singlePost.slug = req.body.slug,
+        singlePost.content= req.body.content,
+        singlePost.image = req.body.image,
+        singlePost.tags = req.body.tags
+    
+    
+    
+        
         fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
     
-        return res.send(updatedPost)
+        return res.send(singlePost)
     
 } 
 
