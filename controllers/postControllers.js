@@ -31,6 +31,7 @@ const show = (req,res)=>{
 
 const store = (req, res)=>{
     const newPost = {
+
         title: req.body.title,
         slug: req.body.slug,
         content: req.body.content,
