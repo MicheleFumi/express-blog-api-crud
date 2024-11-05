@@ -80,5 +80,29 @@ module.exports = [
             "Ricette vegetariane",
             "Ricette al forno"
         ]
+    },
+    {
+        "title": "Ciambellone",
+        "slug": "ciambellone",
+        "content": "Sarà che una volta le cose erano più semplici, ma un po' di olio motore rende tutto migliore!",
+        "image": "./imgs/posts/ciambellone.jpeg",
+        "tags": [
+            "Dolci",
+            "Torte",
+            "Ricette vegetariane",
+            "Ricette al forno"
+        ]
+    },
+    {
+        "title": "Ciambellone",
+        "slug": "ciambellone",
+        "content": "Sarà che una volta le cose erano più semplici, ma un po' di olio motore rende tutto migliore!",
+        "image": "./imgs/posts/ciambellone.jpeg",
+        "tags": [
+            "Dolci",
+            "Torte",
+            "Ricette vegetariane",
+            "Ricette al forno"
+        ]
     }
 ]

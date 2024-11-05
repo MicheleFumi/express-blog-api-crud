@@ -70,7 +70,7 @@ const update = (req, res)=>{
        
         })
         post.push(updatedPost)
-        fs.updateFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
+        fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
     
         return res.send(updatedPost)
     
