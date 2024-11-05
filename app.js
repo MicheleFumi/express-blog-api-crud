@@ -5,7 +5,7 @@ const port = process.env.PORT
 app.use(express.static('public'))
 const postRouter = require('./routers/post.js')
 app.use(express.json())
-
+const bodyParser = require('body-parser')
 
 
 app.listen(3000,(req, res)=>{
@@ -20,6 +20,7 @@ app.use("/index",postRouter)
 
 app.use("/",postRouter)
 
+app.put('/',postRouter)
 
 
 

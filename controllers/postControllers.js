@@ -1,6 +1,7 @@
 const post= require('../db/db.js')
 const fs = require ('fs')
 
+
 function index(req, res) {
     res.json({
         data : post,
@@ -50,12 +51,37 @@ const store = (req, res)=>{
     
 }
 
+const update = (req, res)=>{
+    const slug = req.body.slug
+    const singlePost=post.find(post =>post.slug === slug)
+    console.log(slug);
+
+    if (!singlePost) {
+        return res.status(404).json({
+            error:`Error!: ${slug} was not found `
+        })
+    }
+        const updatedPost=({
+            title: req.body.title,
+            slug: req.body.slug,
+            content: req.body.content,
+            image: req.body.image,
+            tags:req.body.tags
+       
+        })
+        post.push(updatedPost)
+        fs.updateFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
+    
+        return res.send(updatedPost)
+    
+} 
 
 
 
 module.exports = {
     index,
     show,
-    store
+    store,
+    update
     
 }
