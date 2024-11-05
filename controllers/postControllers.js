@@ -39,7 +39,8 @@ const store = (req, res)=>{
         tags:req.body.tags
     }
     post.push(newPost)
-    
+    fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
+
     return res.status(201).json({
         status:201,
         data:post,
@@ -49,7 +50,7 @@ const store = (req, res)=>{
     
 }
 
-fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
+
 
 
 module.exports = {

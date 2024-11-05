@@ -56,5 +56,17 @@ module.exports = [
             "Ricette vegetariane",
             "Ricette al forno"
         ]
+    },
+    {
+        "title": "Ciambellone di Kiev 2",
+        "slug": "ciambellone-nucleare",
+        "content": "ciambellone al gusto scorie nell'acqua del reattore 4 di Chernobyl",
+        "image": "./imgs/posts/ciambellone.jpeg",
+        "tags": [
+            "Dolci",
+            "Torte",
+            "Ricette nucleari",
+            "Ricette al reattore"
+        ]
     }
 ]
