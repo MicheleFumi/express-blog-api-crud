@@ -3,6 +3,7 @@ const app = express();
 const host = process.env.HOST
 const port = process.env.PORT
 const postRoutes = require('./routes/products')
+app.use(express.json())
 
 
 app.listen(3000,()=>{

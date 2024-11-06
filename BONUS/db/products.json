@@ -40,5 +40,19 @@ module.exports=[
         "prezzo": 8000000000000,
         "categoria": "Elettronica senza energia",
         "disponibile": false
+    },
+    {
+        "id": 7,
+        "nome": "Smartphone a manovella",
+        "prezzo": 8000000000000,
+        "categoria": "Elettronica senza energia",
+        "disponibile": false
+    },
+    {
+        "id": 8,
+        "nome": "Smartphone a manovella XD",
+        "prezzo": 8000000000000,
+        "categoria": "Elettronica senza energia",
+        "disponibile": false
     }
 ]
