@@ -47,13 +47,28 @@ const update = (req,res)=>{
     product.disponibile = req.body.disponibile
 
     fs.writeFileSync('./db/products.js',`module.exports=${JSON.stringify(products, null, 4)}`)
-    
+
     res.status(201).json({data: products})
 }
+const destroy= (req,res)=>{
+    const product = products.find((product)=>product.id === parseInt(req.params.id))
+    if(!product){
+        return res.status(404).json({message:'product not found'})
+     }
+     const newList = products.filter((product)=> product.id !== parseInt(req.params.id))
+
+    fs.writeFileSync('./db/products.js', `module.exports=${JSON.stringify(newList, null, 4)}`)
+    res.status(201).json({
+        status:200,
+        data: products
+    })
+}
+
 
 module.exports = {
     index,
     show,
     store,
     update,
+    destroy
 };

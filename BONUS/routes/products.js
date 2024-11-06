@@ -11,6 +11,10 @@ router.get('/products/:id', productsController.show)
 // create a new product
 router.post('/products', productsController.store)
 
+// update an existing product
 router.put('/products/:id', productsController.update)
+
+// delete an existing product
+router.delete('/products/:id', productsController.destroy)
 
 module.exports = router;
