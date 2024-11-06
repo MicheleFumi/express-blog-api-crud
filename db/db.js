@@ -2,7 +2,7 @@ module.exports = [
     {
         "title": "Ciambellone",
         "slug": "ciambellone",
-        "content": "Sarà che una volta le cose erano più semplici, ma un po' di olio motore rende tutto migliore!",
+        "content": "Sarà che una volta le cose erano più semplici, ma un po' di olio motore rende tutto migliore! wow!!!!",
         "image": "./imgs/posts/ciambellone.jpeg",
         "tags": [
             "Dolci",

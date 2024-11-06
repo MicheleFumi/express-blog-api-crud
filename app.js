@@ -14,13 +14,15 @@ app.listen(3000,(req, res)=>{
     
 })
 
-//app.use("/post",postRouter)
+//app.use("/post",postRouter)   
 
 app.use("/index",postRouter)
 
 app.use("/",postRouter)
 
-app.put('/',postRouter)
+app.put('/:slug',postRouter)
+
+app.delete('/:slug',postRouter)
 
 
 

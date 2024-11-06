@@ -1,7 +1,7 @@
 const post= require('../db/db.js')
 const fs = require ('fs')
 
-
+// add index function for get all post
 function index(req, res) {
     res.json({
         data : post,
@@ -10,9 +10,7 @@ function index(req, res) {
 
     
 }
-
-
-
+// add show function for get single post
 const show = (req,res)=>{
     const slug = req.params.slug
     const posts = post.find(post => post.slug === slug)
@@ -29,7 +27,7 @@ const show = (req,res)=>{
     })
 }
 
-
+// add store function for create new post
 const store = (req, res)=>{
     const newPost = {
 
@@ -50,7 +48,7 @@ const store = (req, res)=>{
 
     
 }
-
+// add update function for update post
 const update = (req, res)=>{
     const slug = req.body.slug
     const singlePost=post.find(post =>post.slug === slug)
@@ -68,20 +66,48 @@ const update = (req, res)=>{
         singlePost.tags = req.body.tags
     
     
-    
+
         
         fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
     
-        return res.send(singlePost)
-    
+         res.send(singlePost)
+         return res.json({  
+            status: 201,
+            data: post,
+            count: post.length
+         })
 } 
+// add delete function for delete post
+
+const destroy = (req, res)=>{
+
+    const singlePost=post.find(post =>post.slug === req.params.slug)
+    if (!singlePost) {
+        return res.status(404).json({
+            error:`Error!: pizza was not found `
+        })
+    }
+
+     
+    const newPost = post.filter(singlePost => singlePost.slug !== req.params.slug)
+    fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
+    return res.json({
+        status: 200,
+        data: newPost,
+        count: newPost.length
+    })
+
+}
 
 
 
+
+// add 
 module.exports = {
     index,
     show,
     store,
-    update
+    update,
+    destroy
     
 }
