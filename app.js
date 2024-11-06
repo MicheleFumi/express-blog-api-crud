@@ -20,7 +20,7 @@ app.use("/index",postRouter)
 
 app.use("/",postRouter)
 
-app.put('/',postRouter)
+app.put('/:slug',postRouter)
 
 app.delete('/:slug',postRouter)
 

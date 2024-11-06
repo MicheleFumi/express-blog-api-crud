@@ -51,7 +51,7 @@ const store = (req, res)=>{
 // add update function for update post
 const update = (req, res)=>{
     const slug = req.body.slug
-    const singlePost=post.find(post =>post.slug === slug)
+    const singlePost=post.find((post) =>post.slug.toLowerCase() === slug)
     console.log(slug);
 
     if (!singlePost) {
