@@ -8,7 +8,7 @@ router.get('/' ,postControllers.index)
 router.get('/:slug', postControllers.show) 
 router.post('/', postControllers.store)
 router.put('/',postControllers.update)
-router.delete('/',postControllers.destroy)
+router.delete('/:slug',postControllers.destroy)
 
 
 module.exports = router

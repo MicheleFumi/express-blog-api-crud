@@ -1,4 +1,4 @@
-const post= require('../db/db.js')
+const post = require('../db/db.js')
 const fs = require ('fs')
 
 // add index function for get all post
@@ -73,24 +73,24 @@ const update = (req, res)=>{
          res.send(singlePost)
          return res.json({  
             status: 201,
-            data: post,
-            count: post.length
+            data: singlePost,
+            
          })
 } 
 // add delete function for delete post
 
 const destroy = (req, res)=>{
 
-    const singlePost=post.find(post =>post.slug === req.params.slug)
+    const singlePost = post.find((post) =>post.slug.toLowerCase() === req.params.slug)
     if (!singlePost) {
         return res.status(404).json({
-            error:`Error!: pizza was not found `
+            error:`Error! post was not found `
         })
     }
 
      
-    const newPost = post.filter(singlePost => singlePost.slug !== req.params.slug)
-    fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(post, null, 4)}`)
+    const newPost = post.filter((singlePost) => singlePost.slug !== req.params.slug)
+    fs.writeFileSync('./db/db.js', `module.exports = ${JSON.stringify(newPost, null, 4)}`)
     return res.json({
         status: 200,
         data: newPost,
@@ -102,7 +102,6 @@ const destroy = (req, res)=>{
 
 
 
-// add 
 module.exports = {
     index,
     show,
