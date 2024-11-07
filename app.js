@@ -7,18 +7,17 @@ const postRouter = require('./routers/post.js')
 app.use(express.json())
 const notFoundMiddleware = require('./middlewares/notFound.js')
 const loggerMiddleware = require('./middlewares/logger.js')
-
+const serverError = require('./middlewares/serverError.js')
 
 app.listen(3000,(req, res)=>{
     console.log(`server is running at ${host}:${port} `);
    
     
 })
+app.use('/post', (req, res, next)=>{
+    throw new Error("You broke everything dude! 💥")
+})
 
-// MIDDLEWARES FOR ERROR HANDLING
-app.use(loggerMiddleware)
-
-app.use("/post",notFoundMiddleware)
 
 app.use("/post",postRouter)   
 
@@ -29,6 +28,14 @@ app.use("/",postRouter)
 app.put('/:slug',postRouter)
 
 app.delete('/:slug',postRouter)
+
+// MIDDLEWARES FOR ERROR HANDLING
+app.use(loggerMiddleware)
+
+app.use(notFoundMiddleware)
+
+app.use(serverError)
+
 
 
 
