@@ -5,7 +5,7 @@ const port = process.env.PORT
 app.use(express.static('public'))
 const postRouter = require('./routers/post.js')
 app.use(express.json())
-const bodyParser = require('body-parser')
+const notFoundMiddleware = require('./middlewares/notFound.js')
 
 
 app.listen(3000,(req, res)=>{
@@ -13,6 +13,8 @@ app.listen(3000,(req, res)=>{
    
     
 })
+
+app.use(notFoundMiddleware)
 
 //app.use("/post",postRouter)   
 
