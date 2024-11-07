@@ -3,7 +3,10 @@ const loggerMiddleWare = (req,res, next)=>{
     console.error(`
         Date:${now}
         Method: ${req.method}
-        URL:${req.baseURL}
+        URL:${req.url}
         `);
+        next()
     
 }
+
+module.exports = loggerMiddleWare

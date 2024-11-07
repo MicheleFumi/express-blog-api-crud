@@ -6,6 +6,7 @@ app.use(express.static('public'))
 const postRouter = require('./routers/post.js')
 app.use(express.json())
 const notFoundMiddleware = require('./middlewares/notFound.js')
+const loggerMiddleware = require('./middlewares/logger.js')
 
 
 app.listen(3000,(req, res)=>{
@@ -14,9 +15,12 @@ app.listen(3000,(req, res)=>{
     
 })
 
-app.use(notFoundMiddleware)
+// MIDDLEWARES FOR ERROR HANDLING
+app.use(loggerMiddleware)
 
-//app.use("/post",postRouter)   
+app.use("/post",notFoundMiddleware)
+
+app.use("/post",postRouter)   
 
 app.use("/index",postRouter)
 
